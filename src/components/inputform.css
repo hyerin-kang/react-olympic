@@ -1,0 +1,29 @@
+form {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.inputBox input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+form button {
+  /* padding: 10px; */
+  display: block;
+  height: 40px;
+  width: 100px;
+  background: #fc0;
+  border-radius: 5px;
+  border: none;
+  font-weight: 700;
+}
+button:hover {
+  cursor: pointer;
+}
