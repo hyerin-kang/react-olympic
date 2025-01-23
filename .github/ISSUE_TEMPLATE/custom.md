@@ -1,10 +1,23 @@
 ---
-name: Custom issue template
-about: Describe this issue template's purpose here.
-title: ''
-labels: ''
-assignees: ''
-
+name: 리액트 개인과제
+about: 구현목록
+title: ""
+labels: ""
+assignees: ""
 ---
 
+### 기본 레이아웃 설정 및 입력 폼 구현
 
+- [ ] 기본레이아웃 구성
+- [ ] 제출(입력)폼 UI구현
+
+### 메달 집계 리스트 출력
+
+- [ ] 버튼 클릭시 새로운 국가와 메달 표출
+- [ ] 표출화면 UI구현
+- [ ] 컴포넌트 구조 분리 (입력폼, 메달리스트, 메달아이템)
+
+### 메달 집계 수정 및 삭제
+
+- [ ] 이미 추가된 메달의 수 수정기능
+- [ ] 삭제버튼추가 > 해당국가의 메달집계 삭제기능
