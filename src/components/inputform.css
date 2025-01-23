@@ -1,25 +1,30 @@
 form {
   display: flex;
   align-items: flex-end;
-  gap: 10px;
+  gap: 20px;
+  width: 100%;
+}
+form > * {
+  flex: 1;
 }
 .inputBox {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
 }
 .inputBox input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  width: 100%;
 }
 form button {
   /* padding: 10px; */
   display: block;
   height: 40px;
   width: 100px;
-  background: #fc0;
+  background: #f9c74f;
   border-radius: 5px;
   border: none;
   font-weight: 700;

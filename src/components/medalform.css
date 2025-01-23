@@ -1,17 +1,22 @@
 table {
-  /*width: 100%;*/
+  width: 100%;
   border-collapse: collapse;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
 }
 table thead tr th {
-  background: rgb(203, 203, 255);
+  background: #003580;
+  color: #fff;
 }
 table thead tr th,
 table tbody tr td {
   text-align: center;
   padding: 10px;
-  border: 1px solid #ddd;
 }
 table thead tr th {
 }
 table tbody tr td {
+  background: #e6e6fa;
+  border-bottom: 1px solid #ccc;
 }
