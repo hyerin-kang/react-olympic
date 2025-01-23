@@ -1,0 +1,17 @@
+table {
+  /*width: 100%;*/
+  border-collapse: collapse;
+}
+table thead tr th {
+  background: rgb(203, 203, 255);
+}
+table thead tr th,
+table tbody tr td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+table thead tr th {
+}
+table tbody tr td {
+}
