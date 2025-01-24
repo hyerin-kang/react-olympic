@@ -1,19 +1,20 @@
 // import React from "react";
 import { useState } from "react";
-import "./inputform.css";
-import "./medalform.css";
+import "./../css/inputform.css";
+import "./../css/medalform.css";
+import MedalForm from "./MedalForm";
 const InputForm = () => {
   const [country, setCountry] = useState("");
   //country 값 set상태변경을 해주는 함수
-  const [gold, setGold] = useState();
-  const [silver, setSilver] = useState();
-  const [bronze, setBronze] = useState();
+  const [gold, setGold] = useState(0);
+  const [silver, setSilver] = useState(0);
+  const [bronze, setBronze] = useState(0);
 
-  const [medalLists, setMedalLists] = useState([
+  const [medalList, setMedalList] = useState([
     // { id: 1, country: "나라", gold: 1, silver: 1, bronze: 1 },
   ]);
 
-  const countryName = medalLists.map((item) => item.country);
+  const countryName = medalList.map((item) => item.country);
   const newMedal = {
     id: crypto.randomUUID(),
     country: country,
@@ -45,11 +46,11 @@ const InputForm = () => {
       return;
     }
     // console.log(newMedal);
-    setMedalLists([newMedal, ...medalLists]);
+    setMedalList([newMedal, ...medalList]);
     setCountry("");
-    setGold("");
-    setSilver("");
-    setBronze("");
+    setGold(0);
+    setSilver(0);
+    setBronze(0);
     // const sorted = setMedalLists.sort(function (a, b) {
     //   return b.gold - a.gold;
     // });
@@ -77,26 +78,30 @@ const InputForm = () => {
     // console.log("업데이트");
     //일단 국가에서 받은 value값을 받아온다.
     //리스트에 있으면 해당리스트를 바꾸어준다,,>?
-    console.log(country, ": 업데이트할때 국가명");
+    // console.log(country, ": 업데이트할때 국가명");
     // if(medalLists.)
     //medalLists에 있는 국가명이 있는지 확인하고 있으면 바꿔주고 없으면 해당국가가 없다고 알랏창
 
     if (countryName.includes(country)) {
-      const countryIndex = medalLists.findIndex(
+      const countryIndex = medalList.findIndex(
         (item) => item.country == country
       );
-      const copyMedalLists = [...medalLists];
+      const copyMedalLists = [...medalList];
       copyMedalLists[countryIndex].gold =
         gold || copyMedalLists[countryIndex].gold;
       copyMedalLists[countryIndex].silver =
         silver || copyMedalLists[countryIndex].silver;
       copyMedalLists[countryIndex].bronze =
         bronze || copyMedalLists[countryIndex].bronze;
-      setMedalLists(copyMedalLists);
+      setMedalList(copyMedalLists);
       //값이 없으면 안넣어줄거임 nullish
     } else {
       alert("해당 국가가 등록되지 않았습니다.");
     }
+    setCountry("");
+    setGold(0);
+    setSilver(0);
+    setBronze(0);
   };
   return (
     <div>
@@ -143,58 +148,9 @@ const InputForm = () => {
           업데이트
         </button>
       </form>
-      <table>
-        <thead>
-          <tr>
-            <th>국가명</th>
-            <th>금메달</th>
-            <th>은메달</th>
-            <th>동메달</th>
-            <th>액션</th>
-          </tr>
-        </thead>
-        <tbody>
-          {medalLists.map(function (medalList, index) {
-            return (
-              <MedalList
-                key={index}
-                medalList={medalList}
-                medalLists={medalLists}
-                setMedalLists={setMedalLists}
-              ></MedalList>
-            );
-          })}
-        </tbody>
-      </table>
+      <MedalForm setMedalList={setMedalList} medalList={medalList}></MedalForm>
     </div>
   );
 };
 
 export default InputForm;
-
-const MedalList = ({ medalList, medalLists, setMedalLists }) => {
-  const { id, country, gold, silver, bronze } = medalList;
-  const handleDelete = () => {
-    console.log("삭제");
-    //삭제하기
-
-    const deleteList = medalLists.filter(function (list) {
-      return list.id !== id;
-    });
-
-    setMedalLists(deleteList);
-    console.log(medalList);
-  };
-
-  return (
-    <tr>
-      <td>{country} </td>
-      <td>{gold}</td>
-      <td>{silver}</td>
-      <td>{bronze}</td>
-      <td>
-        <button onClick={handleDelete}>삭제</button>
-      </td>
-    </tr>
-  );
-};
