@@ -61,6 +61,7 @@ React의 useState를 활용하여 실시간으로 정보가 바뀌도록 했습�
 <br/>
 
 https://rinny01.tistory.com/
+> - 업데이트 이슈 :  https://rinny01.tistory.com/52
 
 <br/>
 <br/>
